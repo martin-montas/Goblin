@@ -1,11 +1,10 @@
 package main
 
 import (
-	"log"
 	ui "github.com/gizak/termui/v3"
-	g "goblin/goblin"
+	goblin "goblin/goblin"
+	"log"
 )
-
 
 func main() {
 	if err := ui.Init(); err != nil {
@@ -13,13 +12,5 @@ func main() {
 	}
 	defer ui.Close()
 
-	g.AppRender()
+	goblin.AppRender()
 }
-
-
-
-
-
-
-
-
