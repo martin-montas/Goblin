@@ -25,3 +25,29 @@ func tabWidget() *widget.TabPane {
 
 	return tabpane
 }
+
+
+func requestBox() *widget.Paragraph {
+	width, height := ui.TerminalDimensions()
+	requestBox := widget.NewParagraph()
+	requestBox.Title = "Request"
+
+	requestBox.SetRect(0, 8, (width/2) -2, height -5)
+	requestBox.TitleStyle.Fg = ui.ColorRed
+
+	return requestBox
+}
+
+func responseBox() *widget.Paragraph {
+	width, height := ui.TerminalDimensions()
+	responseBox := widget.NewParagraph()
+	responseBox.Title = "Response"
+
+	responseBox.SetRect(60, 8, width, height -5)
+	responseBox.TitleStyle.Fg = ui.ColorRed
+
+	return responseBox
+}
+
+
+

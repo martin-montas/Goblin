@@ -11,13 +11,23 @@ func AppRender() {
 	var inputBuffer string
 	urlWidget := URLWidget()
 	tabWidget := tabWidget()
-	ui.Render(urlWidget, tabWidget)
+	requestBox := requestBox()
+	responseBox := responseBox()
+
+	ui.Render(
+		urlWidget, tabWidget,
+		responseBox, requestBox,
+
+		)
 
 	render_tab := func() {
 		switch tabWidget.ActiveTabIndex {
 		case 0:
 			ui.Render(urlWidget)
 		case 1:
+			// ui.Render(bc)
+	
+		case 2:
 			// ui.Render(bc)
 		}
 	}
@@ -39,18 +49,16 @@ func AppRender() {
 					inputBuffer = inputBuffer[:len(inputBuffer)-1]
 				}
 
-			case "<C-h>": // Handle tab (left)
+			case "<C-h>", "<Left>": // Handle tab (left)
 				tabWidget.FocusLeft()
 				ui.Clear()
 				// TODO
 				// ui.Render(urlWidget,tabWidget)
 				render_tab()
 
-			case "<C-l>": // Handle tab (right)
+			case "<C-l>", "<Right>": // Handle tab (right)
 				tabWidget.FocusRight()
 				ui.Clear()
-				ui.Render(urlWidget, tabWidget,
-				)
 				render_tab()
 
 			case "?": // help
